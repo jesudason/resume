@@ -19,7 +19,7 @@ class Timeline extends React.Component {
     {
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer ya29.GluFB0lK6bC74dAhFpLFtkMiNnpNVkre9rDnibqYmEybjlxtmDHMlrA1Uk7jx7_1kzA-RV92UDnSpBQiQqAPsSx50ktp7E_cj1suc8YVy5-7dXP1u5pxT61HM16N" 
+        Authorization: "Bearer ya29.GluFB0bvC_OYT62ntiaIe4J8VODxcjnv9cVdHLg0hOwWKSbMhT3WUUkUaBdOAB2Qgk3afka9TkNz0_Ai50PJSaPVHtlVEr48n50RDY5hQAUCVwO3k2AeTri10Mxj" 
     }
     }).then(res => res.json())
       // .then((res) => console.log(res.values));
@@ -56,11 +56,13 @@ class Timeline extends React.Component {
         <div className="timeline">
           <div className="row">
             <div className="col-xs-12 col-sm-4 col-md-4">
-              <ul>
-                {items.map((item, i) => (
-                  <Job key={item[0]} props={item} year={item[1]} role={item[2]} site={item[3]} description={item[4]} isHovered={item[5]} handleHover={this.handleHover.bind(this, i)} />
-                ))}
-              </ul>  
+              <div className="timeline__wrapper">
+                <ul>
+                  {items.map((item, i) => (
+                    <Job key={item[0]} props={item} year={item[1]} role={item[2]} site={item[3]} description={item[4]} isHovered={item[5]} handleHover={this.handleHover.bind(this, i)} />
+                  ))}
+                </ul>
+              </div>  
             </div>
             <div className="col-xs-12 col-sm-8 col-md-8">
               <div className="timeline--item--description">

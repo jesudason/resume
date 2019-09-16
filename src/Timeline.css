@@ -20,7 +20,7 @@
 }
 
 /* The actual timeline (the vertical ruler) */
-.timeline::after {
+ul::after {
   content: '';
   position: absolute;
   width: 2px;
@@ -57,7 +57,7 @@ li.timeline--item::before {
 }
 .timeline--item--description {
   /*display: none;*/
-  background-color: white;
+  background: white;
   border-radius: 5px;
   padding: 24px;
   margin: 24px;
@@ -66,5 +66,11 @@ li.timeline--item::before {
 
 li.timeline--item:hover .timeline--item--description {
   display: block
+}
+
+.timeline__wrapper {
+    max-height: 50vh;
+    overflow: scroll;
+    position: relative;
 }
 
