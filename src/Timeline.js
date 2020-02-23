@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './Timeline.css';
+import './Timeline.scss';
 
 
 class Timeline extends React.Component {
@@ -15,12 +14,13 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://sheets.googleapis.com/v4/spreadsheets/1y6k7P6o2rLA6KkgLXaJZtsr9c72YaBUU4XY5NYgx7eQ/values/A2:F",     
+    const API_KEY ='AIzaSyAMA3O3jW8CYQ2RpDLbZLcWLLBKPz4MRbw';
+    const sheet = '1y6k7P6o2rLA6KkgLXaJZtsr9c72YaBUU4XY5NYgx7eQ';
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheet}/values/A2:F?key=${API_KEY}`,     
     {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer ya29.GluFB0bvC_OYT62ntiaIe4J8VODxcjnv9cVdHLg0hOwWKSbMhT3WUUkUaBdOAB2Qgk3afka9TkNz0_Ai50PJSaPVHtlVEr48n50RDY5hQAUCVwO3k2AeTri10Mxj" 
-    }
+        "Content-Type": "application/json"
+      }
     }).then(res => res.json())
       // .then((res) => console.log(res.values));
       .then(
@@ -53,45 +53,35 @@ class Timeline extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="timeline">
-          <div className="row">
-            <div className="col-xs-12 col-sm-4 col-md-4">
-              <div className="timeline__wrapper">
-                <ul>
-                  {items.map((item, i) => (
-                    <Job key={item[0]} props={item} year={item[1]} role={item[2]} site={item[3]} description={item[4]} isHovered={item[5]} handleHover={this.handleHover.bind(this, i)} />
-                  ))}
-                </ul>
-              </div>  
-            </div>
-            <div className="col-xs-12 col-sm-8 col-md-8">
-              <div className="timeline--item--description">
-                {items.map(item => ( 
-                  (item[0] == this.state.active)
-                    ? <Description description={item[4]} />
-                    : ''
-                ))}
-              </div> 
-            </div>      
-          </div>
+        <div className="timeline"> 
+          <div className="timeline__wrapper">
+            <div className="accordion">
+              {items.map((item, i) => (
+                <Job key={i} id={i} props={item} year={item[1]} role={item[2]} site={item[3]} description={item[4]}/>
+
+              ))}
+              </div>
+          </div>  
         </div>
       );
     }
   }
 }
 
-const Job = ({ props, year, role, site, handleHover, state}) => {
+const Job = ({ props, id, year, role, description, site, state}) => {
   return (
-      <li className="timeline--item" id={props[0]} onMouseEnter={handleHover}>
-        <div className="timeline__item--summary">
-          <span>{year} {site}</span>
-          <h5>{role}</h5>
-        </div>
-      </li>
-    )
+    <div>
+      <input type="checkbox" name="panel" id={id} />
+      <label htmlFor={id}>{year} {site}</label>       
+      <div className="accordion__content">
+        <h2 className="accordion__header">{role}</h2>
+        <p className="accordion__body">{description}</p>
+      </div>   
+    </div>
+  )
 }
 
-const Description = ({ description }) => {
+const Content = ({ description }) => {
   return (
       <div className="timeline__item--description">
         <p>{description}</p>

@@ -1,0 +1,27 @@
+@import './globals.scss';
+@import './fonts.scss';
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: url('./scenery.jpg');
+  background-position: center;
+}
+
+@media only screen and (min-width: 48rem) {
+
+  .page__wrapper {
+    max-width: 45em;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .page__wrapper {
+    max-width: 64em;
+  }
+}

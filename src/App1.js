@@ -32,7 +32,12 @@ function Resume() {
 function Home() {
   return (
     <div className="App homepage">
-        <Homepage />
+      <div class="homepage__overlay"></div>
+      <div class="homepage__overlay--slant"></div> 
+      <div className="page__wrapper">
+        <Socials />
+          <Homepage />
+      </div>
     </div>
   );
 }
