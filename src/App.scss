@@ -1,27 +1,26 @@
-@import './globals.scss';
-@import './fonts.scss';
+@import "./styles/globals.scss";
+@import "./styles/fonts.scss";
 
 .App {
-  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  background-color: whitesmoke;
+  // min-height: 100vh;
   position: relative;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: url('./scenery.jpg');
-  background-position: center;
+  // width: 100%;
+  // height: 100%;
+  color: black;
 }
 
-@media only screen and (min-width: 48rem) {
+// @media only screen and (min-width: 48rem) {
+//   .page__wrapper {
+//     max-width: 45em;
+//     margin: 0 auto;
+//   }
+// }
 
-  .page__wrapper {
-    max-width: 45em;
-    margin: 0 auto;
-  }
-}
-
-@media only screen and (min-width: 75rem) {
-  .page__wrapper {
-    max-width: 64em;
-  }
-}
+// @media only screen and (min-width: 75rem) {
+//   .page__wrapper {
+//     max-width: 64em;
+//   }
+// }

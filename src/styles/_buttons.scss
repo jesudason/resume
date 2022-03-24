@@ -1,4 +1,4 @@
-@import './globals.scss';
+@import "./globals.scss";
 
 .btn {
   padding: 1em;
@@ -7,12 +7,12 @@
   list-style: none;
   border: $border-white;
   background: transparent;
-  color: white;
+  // color: white;
 
   &:hover {
     background: $background-transparent--dark;
     -moz-box-shadow: $box-shadow;
     -webkit-box-shadow: $box-shadow;
-     box-shadow: $box-shadow;   
+    box-shadow: $box-shadow;
   }
 }

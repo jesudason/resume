@@ -1,29 +1,23 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Homepage from './Homepage.js'
-import Socials from './Socials.js'
-import Timeline from './Timeline.js'
-import './App.scss';
+import Homepage from "./pages/Homepage.js";
+import Socials from "./Socials.js";
+import Timeline from "./Timeline.js";
+import "./App.scss";
 
 function Projects() {
-  return (
-    <div className="page__wrapper">
-    </div>
-  );
+  return <div className="page__wrapper"></div>;
 }
 
 function About() {
-  return (
-    <div className="page__wrapper">
-    </div>
-  );
+  return <div className="page__wrapper"></div>;
 }
 
 function Resume() {
   return (
     <div className="App resume">
       <div className="page__wrapper">
-        <Timeline/>
+        <Timeline />
       </div>
     </div>
   );
@@ -32,7 +26,7 @@ function Resume() {
 function Home() {
   return (
     <div className="App homepage">
-        <Homepage />
+      <Homepage />
     </div>
   );
 }
@@ -40,7 +34,7 @@ function Home() {
 function AppRouter() {
   return (
     <Router>
-      <div>   
+      <div>
         <Route path="/" exact component={Home} />
         <Route path="/about/" exact component={About} />
         <Route path="/resume/" component={Resume} />
@@ -51,4 +45,3 @@ function AppRouter() {
 }
 
 export default AppRouter;
-

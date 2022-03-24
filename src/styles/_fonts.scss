@@ -1,24 +1,27 @@
-
 html {
   font-size: 16px;
-    
+
   @media screen and (min-width: 48rem) {
     font-size: 18px;
   }
-    
+
   @media screen and (min-width: 1200px) {
     font-size: 20px;
   }
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Montserrat", sans-serif;
 }
 
 p,
 body,
 span {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   line-height: 1.563em;
   font-size: 1em;
 }
@@ -48,15 +51,16 @@ h5 {
   line-height: 1.444em;
 }
 
-.caption {font-size: 0.75rem;}
+.caption {
+  font-size: 0.75rem;
+}
 
 a {
   text-decoration: none;
-  color: white;
+  // color: white;
 }
 
 @media screen and (min-width: 48rem) {
-
   h2 {
     line-height: 1.375em;
   }
@@ -67,6 +71,5 @@ a {
 
   h5 {
     line-height: 1.5em;
-  }  
-
+  }
 }

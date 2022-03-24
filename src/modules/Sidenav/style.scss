@@ -1,0 +1,59 @@
+.side-nav {
+  text-align: right;
+  position: absolute;
+  width: 100%;
+  margin-left: -25px;
+  margin-top: -21px;
+  background-color: white;
+
+  .hamburger {
+    font-size: 26px;
+    padding: 21px 25px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  nav {
+    text-align: left;
+
+    ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out;
+      li {
+        font-size: 20px;
+        line-height: 2.67;
+        padding-left: 25px;
+        border-bottom: solid 1px lightgrey;
+      }
+    }
+  }
+
+  &--open {
+    nav {
+      ul {
+        max-height: 500px;
+        transition: max-height 0.35s ease-in;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@media (min-width: 64rem) {
+  .side-nav {
+    position: relative;
+    margin: 0;
+    height: 100vw;
+
+    .hamburger {
+      display: none;
+    }
+
+    nav ul {
+      max-height: none;
+    }
+  }
+}
