@@ -1,0 +1,28 @@
+.profile {
+  display: none;
+  background-color: white;
+  padding: 32px;
+
+  &__wrapper {
+    text-align: center;
+    // background: white;
+    width: 189px;
+    height: 189px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+
+    img {
+      display: inline;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+@media only screen and (min-width: 64rem) {
+  .profile {
+    display: block;
+  }
+}

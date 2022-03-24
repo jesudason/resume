@@ -1,4 +1,5 @@
 import React from "react";
+import Profile from "../Profile";
 import "./style.scss";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
@@ -20,6 +21,7 @@ class Sidenav extends React.Component {
 
     return (
       <div className={isMenuOpen ? "side-nav side-nav--open" : "side-nav"}>
+        <Profile />
         <div className="hamburger" onClick={this.toggleMenu}>
           {isMenuOpen ? <CgClose /> : <CgMenu />}
         </div>

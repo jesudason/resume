@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Homepage from "./pages/Homepage.js";
 import Socials from "./Socials.js";
-import Timeline from "./Timeline.js";
+import Timeline from "./pages/Timeline/index.js";
+import Sidenav from "./modules/Sidenav";
+
 import "./App.scss";
 
 function Projects() {
@@ -14,31 +16,30 @@ function About() {
 }
 
 function Resume() {
-  return (
-    <div className="App resume">
-      <div className="page__wrapper">
-        <Timeline />
-      </div>
-    </div>
-  );
+  return <Timeline />;
 }
 
 function Home() {
-  return (
-    <div className="App homepage">
-      <Homepage />
-    </div>
-  );
+  return <Homepage />;
 }
 
 function AppRouter() {
   return (
     <Router>
-      <div>
-        <Route path="/" exact component={Home} />
-        <Route path="/about/" exact component={About} />
-        <Route path="/resume/" component={Resume} />
-        <Route path="/projects/" component={Projects} />
+      <div className="App">
+        <div className="page__wrapper">
+          <div className="row">
+            <div className="col-xs-12 col-sm-3">
+              <Sidenav />
+            </div>
+            <div className="col-xs-12 col-sm-9">
+              <Route path="/" exact component={Home} />
+              <Route path="/about/" exact component={About} />
+              <Route path="/resume/" component={Resume} />
+              <Route path="/projects/" component={Projects} />
+            </div>
+          </div>
+        </div>
       </div>
     </Router>
   );

@@ -1,0 +1,49 @@
+/* Radio Inputs */
+input[name="panel"] {
+  display: none;
+}
+
+/* Labels */
+label {
+  position: relative;
+  display: block;
+  padding: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+label:before {
+  content: "+";
+  position: absolute;
+  right: 1em;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+}
+
+input:checked + label:after {
+  content: "-";
+  line-height: 0.8em;
+}
+
+/* Panel Content */
+.accordion__content {
+  overflow: hidden;
+  max-height: 0em;
+  position: relative;
+  padding: 0 1.5em;
+}
+
+// .accordion__header {
+//   padding: 1em 0;
+// }
+
+// .accordion__body {
+//   font-size: 0.825em;
+//   line-height: 1.4em;
+//   padding: 0 0 1.5em;
+// }
+
+input[name="panel"]:checked ~ .accordion__content {
+  max-height: 50em;
+}
