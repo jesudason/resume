@@ -35,18 +35,20 @@ function AppRouter() {
               <Sidenav />
             </Col>
             <Col xs={12} md={9}>
-              <Switch>
-                {routes.map((route, index) => (
-                  // Render more <Route>s with the same paths as
-                  // above, but different components this time.
-                  <Route
-                    key={index}
-                    path={route.path}
-                    exact={route.exact}
-                    children={<route.main />}
-                  />
-                ))}
-              </Switch>
+              <div className="main">
+                <Switch>
+                  {routes.map((route, index) => (
+                    // Render more <Route>s with the same paths as
+                    // above, but different components this time.
+                    <Route
+                      key={index}
+                      path={route.path}
+                      exact={route.exact}
+                      children={<route.main />}
+                    />
+                  ))}
+                </Switch>
+              </div>
             </Col>
           </Row>
         </Grid>

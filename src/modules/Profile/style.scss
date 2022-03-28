@@ -1,13 +1,12 @@
 .profile {
   display: none;
   background-color: white;
-  padding: 32px;
+  padding: 24px 0;
 
   &__wrapper {
     text-align: center;
-    // background: white;
-    width: 189px;
-    height: 189px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
@@ -21,8 +20,20 @@
     }
   }
 }
+@media only screen and (min-width: 48rem) {
+  .profile {
+    display: block;
+  }
+}
+
 @media only screen and (min-width: 64rem) {
   .profile {
     display: block;
+    padding: 48px 0 32px;
+
+    &__wrapper {
+      width: 189px;
+      height: 189px;
+    }
   }
 }

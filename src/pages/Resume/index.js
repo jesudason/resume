@@ -61,17 +61,20 @@ class Resume extends React.Component {
               <Col xs={12}>
                 <h1>Resume page</h1>
                 <div className="resume__wrapper">
-                  {items.map((item, i) => (
-                    <Job
-                      key={i}
-                      id={i}
-                      props={item}
-                      year={item[1]}
-                      role={item[2]}
-                      site={item[3]}
-                      description={item[4]}
-                    />
-                  ))}
+                  <div className="vl"></div>
+                  <ul>
+                    {items.map((item, i) => (
+                      <Job
+                        key={i}
+                        id={i}
+                        props={item}
+                        year={item[1]}
+                        role={item[2]}
+                        site={item[3]}
+                        description={item[4]}
+                      />
+                    ))}
+                  </ul>
                 </div>
               </Col>
             </Row>
@@ -84,16 +87,17 @@ class Resume extends React.Component {
 
 const Job = ({ props, id, year, role, description, site, state }) => {
   return (
-    <div className="resume__wrapper--item">
+    <li className="resume__wrapper--item">
       <input type="checkbox" name="panel" id={id} />
       <label htmlFor={id}>
-        {year} {site}
+        <span className="year">{year}</span>
+        {site}
       </label>
       <div className="accordion__content">
         <h2 className="accordion__header">{role}</h2>
         <p className="accordion__body">{description}</p>
       </div>
-    </div>
+    </li>
   );
 };
 

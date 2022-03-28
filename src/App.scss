@@ -2,46 +2,26 @@
 @import "./styles/fonts.scss";
 
 .App {
-  // max-height: 100vh;
-  // height: 100vh;
-  background-color: #add8e62e;
+  background-color: lightgrey;
   position: relative;
   color: black;
+}
+@media only screen and (min-width: 48rem) {
+  .App {
+    .main {
+      padding: 24px;
 
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      "sidebar main main"
-      "sidebar main main"
-      "sidebar main main";
-  }
-  .sidebar {
-    grid-area: sidebar;
-  }
-  .main {
-    grid-area: main;
-  }
-
-  .page__wrapper {
-    // padding: 21px 25px;
-    // height: 100%;
-    // overflow: hidden;
+      h1:first-of-type {
+        margin-top: 0;
+      }
+    }
   }
 }
 
-// @media only screen and (min-width: 64rem) {
-//   .App {
-//     .page__wrapper {
-//       padding: 0;
-//     }
-//   }
-// }
-
-// @media only screen and (min-width: 75rem) {
-//   .page__wrapper {
-//     max-width: 64em;
-//   }
-// }
+@media only screen and (min-width: 64rem) {
+  .App {
+    .main {
+      padding: 32px;
+    }
+  }
+}

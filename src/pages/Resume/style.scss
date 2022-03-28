@@ -13,64 +13,104 @@ $card-width: 450px;
     bottom: 0;
     left: 50%;
   }
-
   .resume__wrapper {
-    display: flex;
-    flex-direction: column;
+    // height: calc(100% + 32px);
+    padding-bottom: 32px;
+    .vl {
+      border-left: 6px solid black;
+      height: calc(100% - 88px);
+      position: absolute;
+      top: 0;
+    }
 
-    &--item {
-      position: relative;
-      display: block;
-      max-width: $card-width;
-      background-color: seashell;
+    ul {
+      display: flex;
+      flex-direction: column;
 
-      &:nth-child(odd) {
-        align-self: flex-start;
-      }
-
-      &:nth-child(even) {
-        align-self: flex-end;
-      }
-
-      /* Radio Inputs */
-      input[name="panel"] {
-        display: none;
-      }
-
-      /* Labels */
-      label {
+      li {
         position: relative;
         display: block;
-        padding: 1em;
-        font-size: 1.5em;
-        cursor: pointer;
-      }
 
-      label:before {
-        content: "+";
-        position: absolute;
-        right: 1em;
-        width: 1em;
-        height: 1em;
-        text-align: center;
-      }
+        background-color: white;
 
-      input:checked + label:after {
-        content: "-";
-        line-height: 0.8em;
-      }
+        &:nth-child(odd) {
+          align-self: flex-start;
+        }
 
-      /* Panel Content */
-      .accordion__content {
-        overflow: hidden;
-        max-height: 0em;
-        position: relative;
-        padding: 0 1.5em;
-        transition: max-height 0.45s ease-in-out;
-      }
+        &:nth-child(even) {
+          align-self: flex-end;
+        }
 
-      input[name="panel"]:checked ~ .accordion__content {
-        max-height: 50em;
+        /* Radio Inputs */
+        input[name="panel"] {
+          display: none;
+        }
+
+        /* Labels */
+        label {
+          position: relative;
+          display: block;
+          padding: 1em;
+          font-size: 1.5em;
+          cursor: pointer;
+        }
+
+        label:before {
+          content: "+";
+          position: absolute;
+          right: 1em;
+          width: 1em;
+          height: 1em;
+          text-align: center;
+        }
+
+        input:checked + label:before {
+          content: "-";
+          line-height: 0.8em;
+        }
+
+        /* Panel Content */
+        .accordion__content {
+          overflow: hidden;
+          max-height: 0em;
+          position: relative;
+          padding: 0 1.5em;
+          transition: max-height 0.45s ease-in-out;
+        }
+
+        input[name="panel"]:checked ~ .accordion__content {
+          max-height: 50em;
+        }
+
+        span.year {
+          float: right;
+          border: solid 1px black;
+          font-size: 14px;
+          padding: 6px 12px;
+          margin-right: 48px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 64rem) {
+  .Resume {
+    .resume__wrapper {
+      .vl {
+        left: 50%;
+        margin-left: -3px;
+        top: 88px;
+      }
+      ul {
+        li {
+          max-width: $card-width;
+
+          span.year {
+            display: block;
+            width: fit-content;
+          }
+        }
       }
     }
   }
