@@ -10,24 +10,35 @@
 
   .container {
     display: grid;
-    grid-template-columns: 10rem 10rem 10rem;
-    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "sidebar main main"
+      "sidebar main main"
+      "sidebar main main";
+  }
+  .sidebar {
+    grid-area: sidebar;
+  }
+  .main {
+    grid-area: main;
   }
 
   .page__wrapper {
-    padding: 21px 25px;
+    // padding: 21px 25px;
     // height: 100%;
     // overflow: hidden;
   }
 }
 
-@media only screen and (min-width: 64rem) {
-  .App {
-    .page__wrapper {
-      padding: 0;
-    }
-  }
-}
+// @media only screen and (min-width: 64rem) {
+//   .App {
+//     .page__wrapper {
+//       padding: 0;
+//     }
+//   }
+// }
 
 // @media only screen and (min-width: 75rem) {
 //   .page__wrapper {

@@ -7,6 +7,9 @@ $box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.4);
 $border-white: solid white 2px;
 $border-radius: 5px;
 
+.sr-only {
+  display: none;
+}
 ul {
   padding-left: 0;
   list-style: none;

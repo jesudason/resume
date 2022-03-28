@@ -5,6 +5,7 @@ import Socials from "./Socials.js";
 import Resume from "./pages/Resume";
 import Sidenav from "./modules/Sidenav";
 import About from "./pages/About";
+import { Grid, Row, Col } from "react-flexbox-grid";
 
 import "./App.scss";
 
@@ -28,12 +29,12 @@ function AppRouter() {
   return (
     <Router>
       <div className="App">
-        <div className="page__wrapper">
-          <div className="row">
-            <div className="col-xs-12 col-sm-3">
+        <Grid fluid>
+          <Row>
+            <Col xs={12} md={3}>
               <Sidenav />
-            </div>
-            <div className="col-xs-12 col-sm-9">
+            </Col>
+            <Col xs={12} md={9}>
               <Switch>
                 {routes.map((route, index) => (
                   // Render more <Route>s with the same paths as
@@ -46,9 +47,9 @@ function AppRouter() {
                   />
                 ))}
               </Switch>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     </Router>
   );
