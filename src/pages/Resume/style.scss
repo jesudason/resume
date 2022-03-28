@@ -1,49 +1,77 @@
-/* Radio Inputs */
-input[name="panel"] {
-  display: none;
-}
+$card-height: 400px;
+$card-width: 450px;
 
-/* Labels */
-label {
+.Resume {
   position: relative;
-  display: block;
-  padding: 1em;
-  font-size: 1.5em;
-  cursor: pointer;
-}
+  margin: auto;
 
-label:before {
-  content: "+";
-  position: absolute;
-  right: 1em;
-  width: 1em;
-  height: 1em;
-  text-align: center;
-}
+  &::after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+  }
 
-input:checked + label:after {
-  content: "-";
-  line-height: 0.8em;
-}
+  .resume__wrapper {
+    display: flex;
+    flex-direction: column;
 
-/* Panel Content */
-.accordion__content {
-  overflow: hidden;
-  max-height: 0em;
-  position: relative;
-  padding: 0 1.5em;
-}
+    &--item {
+      position: relative;
+      display: block;
+      max-width: $card-width;
+      background-color: seashell;
 
-// .accordion__header {
-//   padding: 1em 0;
-// }
+      &:nth-child(odd) {
+        align-self: flex-start;
+      }
 
-// .accordion__body {
-//   font-size: 0.825em;
-//   line-height: 1.4em;
-//   padding: 0 0 1.5em;
-// }
+      &:nth-child(even) {
+        align-self: flex-end;
+      }
 
-input[name="panel"]:checked ~ .accordion__content {
-  max-height: 50em;
+      /* Radio Inputs */
+      input[name="panel"] {
+        display: none;
+      }
+
+      /* Labels */
+      label {
+        position: relative;
+        display: block;
+        padding: 1em;
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      label:before {
+        content: "+";
+        position: absolute;
+        right: 1em;
+        width: 1em;
+        height: 1em;
+        text-align: center;
+      }
+
+      input:checked + label:after {
+        content: "-";
+        line-height: 0.8em;
+      }
+
+      /* Panel Content */
+      .accordion__content {
+        overflow: hidden;
+        max-height: 0em;
+        position: relative;
+        padding: 0 1.5em;
+        transition: max-height 0.45s ease-in-out;
+      }
+
+      input[name="panel"]:checked ~ .accordion__content {
+        max-height: 50em;
+      }
+    }
+  }
 }

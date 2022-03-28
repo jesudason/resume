@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid, Row, Col } from "react-flexbox-grid";
 import "./style.scss";
 
 class Resume extends React.Component {
@@ -55,22 +56,26 @@ class Resume extends React.Component {
     } else {
       return (
         <div data-testid="show-data" className="Resume">
-          <div className="Resume__wrapper">
-            <h1>Resume page</h1>
-            <div className="accordion">
-              {items.map((item, i) => (
-                <Job
-                  key={i}
-                  id={i}
-                  props={item}
-                  year={item[1]}
-                  role={item[2]}
-                  site={item[3]}
-                  description={item[4]}
-                />
-              ))}
-            </div>
-          </div>
+          <Grid fluid>
+            <Row>
+              <Col xs={12}>
+                <h1>Resume page</h1>
+                <div className="resume__wrapper">
+                  {items.map((item, i) => (
+                    <Job
+                      key={i}
+                      id={i}
+                      props={item}
+                      year={item[1]}
+                      role={item[2]}
+                      site={item[3]}
+                      description={item[4]}
+                    />
+                  ))}
+                </div>
+              </Col>
+            </Row>
+          </Grid>
         </div>
       );
     }
@@ -79,7 +84,7 @@ class Resume extends React.Component {
 
 const Job = ({ props, id, year, role, description, site, state }) => {
   return (
-    <div>
+    <div className="resume__wrapper--item">
       <input type="checkbox" name="panel" id={id} />
       <label htmlFor={id}>
         {year} {site}
