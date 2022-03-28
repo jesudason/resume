@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Homepage from "./Homepage.js";
 import Socials from "./Socials.js";
-import Timeline from "./Timeline.js";
+import Resume from "./Resume.js";
 import "./App.scss";
 
 function Projects() {
@@ -17,7 +17,7 @@ function Resume() {
   return (
     <div className="App resume">
       <div className="page__wrapper">
-        <Timeline />
+        <Resume />
       </div>
     </div>
   );

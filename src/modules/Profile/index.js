@@ -7,9 +7,7 @@ class Homepage extends React.Component {
     return (
       <div className="profile">
         <div className="profile__wrapper ">
-          <a href="/">
-            <img src={profilepic} alt="Link to home" />
-          </a>
+          <img src={profilepic} alt="Link to home" />
         </div>
       </div>
     );

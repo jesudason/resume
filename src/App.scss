@@ -8,6 +8,12 @@
   position: relative;
   color: black;
 
+  .container {
+    display: grid;
+    grid-template-columns: 10rem 10rem 10rem;
+    grid-gap: 1rem;
+  }
+
   .page__wrapper {
     padding: 21px 25px;
     // height: 100%;

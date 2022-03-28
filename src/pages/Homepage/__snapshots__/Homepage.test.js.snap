@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="homepage"
+  >
+    <div
+      class="homepage__wrapper"
+    >
+      <h1>
+        Nicole Jesudason
+      </h1>
+      <h2>
+        WEB DEVELOPER
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -20,21 +20,35 @@ class Sidenav extends React.Component {
     const { isMenuOpen } = this.state;
 
     return (
-      <div className={isMenuOpen ? "side-nav side-nav--open" : "side-nav"}>
-        <Profile />
+      <div
+        data-testid="side-nav"
+        className={isMenuOpen ? "side-nav side-nav--open" : "side-nav"}
+      >
         <div className="hamburger" onClick={this.toggleMenu}>
           {isMenuOpen ? <CgClose /> : <CgMenu />}
         </div>
         <nav>
           <ul>
             <li className="nav__link">
-              <Link to="/projects/">Projects</Link>
+              <Link data-testid="home-link" to="/">
+                <span className="sr-only">Home</span>
+                <Profile />
+              </Link>
             </li>
             <li className="nav__link">
-              <Link to="/resume/">Resume</Link>
+              <Link data-testid="projects-link" to="/projects/">
+                Projects
+              </Link>
             </li>
             <li className="nav__link">
-              <Link to="/about">About Me</Link>
+              <Link data-testid="resume-link" to="/resume/">
+                Resume
+              </Link>
+            </li>
+            <li className="nav__link">
+              <Link data-testid="about-link" to="/about">
+                About Me
+              </Link>
             </li>
           </ul>
         </nav>

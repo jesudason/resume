@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-class Timeline extends React.Component {
+class Resume extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,11 +51,12 @@ class Timeline extends React.Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div data-testid="loading">Loading...</div>;
     } else {
       return (
-        <div className="timeline">
-          <div className="timeline__wrapper">
+        <div data-testid="show-data" className="Resume">
+          <div className="Resume__wrapper">
+            <h1>Resume page</h1>
             <div className="accordion">
               {items.map((item, i) => (
                 <Job
@@ -93,10 +94,10 @@ const Job = ({ props, id, year, role, description, site, state }) => {
 
 const Content = ({ description }) => {
   return (
-    <div className="timeline__item--description">
+    <div className="Resume__item--description">
       <p>{description}</p>
     </div>
   );
 };
 
-export default Timeline;
+export default Resume;

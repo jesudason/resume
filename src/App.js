@@ -1,27 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Homepage from "./pages/Homepage.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 import Socials from "./Socials.js";
-import Timeline from "./pages/Timeline/index.js";
+import Resume from "./pages/Resume";
 import Sidenav from "./modules/Sidenav";
+import About from "./pages/About";
 
 import "./App.scss";
 
-function Projects() {
-  return <div className="page__wrapper"></div>;
-}
-
-function About() {
-  return <div className="page__wrapper"></div>;
-}
-
-function Resume() {
-  return <Timeline />;
-}
-
-function Home() {
-  return <Homepage />;
-}
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    main: () => <Homepage />,
+  },
+  {
+    path: "/about",
+    main: () => <About />,
+  },
+  {
+    path: "/resume",
+    main: () => <Resume />,
+  },
+];
 
 function AppRouter() {
   return (
@@ -33,10 +34,18 @@ function AppRouter() {
               <Sidenav />
             </div>
             <div className="col-xs-12 col-sm-9">
-              <Route path="/" exact component={Home} />
-              <Route path="/about/" exact component={About} />
-              <Route path="/resume/" component={Resume} />
-              <Route path="/projects/" component={Projects} />
+              <Switch>
+                {routes.map((route, index) => (
+                  // Render more <Route>s with the same paths as
+                  // above, but different components this time.
+                  <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    children={<route.main />}
+                  />
+                ))}
+              </Switch>
             </div>
           </div>
         </div>
