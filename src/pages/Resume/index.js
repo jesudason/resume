@@ -48,6 +48,7 @@ class Resume extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
+    const colours = ["pink", "lightblue", "yellow", "orange"];
 
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -72,6 +73,7 @@ class Resume extends React.Component {
                         role={item[2]}
                         site={item[3]}
                         description={item[4]}
+                        colour={colours[i]}
                       />
                     ))}
                   </ul>
@@ -85,11 +87,25 @@ class Resume extends React.Component {
   }
 }
 
-const Job = ({ props, id, year, role, description, site, state }) => {
+const Job = ({ props, id, year, role, description, site, state, colour }) => {
+  function getColor() {
+    return (
+      "hsl(" +
+      360 * Math.random() +
+      "," +
+      (25 + 70 * Math.random()) +
+      "%," +
+      (85 + 10 * Math.random()) +
+      "%)"
+    );
+  }
+
+  const border = `5px solid ${getColor()}`;
   return (
-    <li className="resume__wrapper--item">
+    <li className="resume__wrapper--item" style={{ border: border }}>
+      <span className="dot" style={{ border: border }}></span>
       <input type="checkbox" name="panel" id={id} />
-      <label htmlFor={id}>
+      <label htmlFor={id} style={{ borderBottom: border }}>
         <span className="year">{year}</span>
         {site}
       </label>

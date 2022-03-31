@@ -5,7 +5,12 @@ $card-width: 450px;
   position: relative;
   margin: auto;
 
-  &::after {
+  h1 {
+    margin-bottom: 32px;
+    // color: red;
+  }
+
+  &:after {
     z-index: 1;
     content: "";
     position: absolute;
@@ -13,25 +18,35 @@ $card-width: 450px;
     bottom: 0;
     left: 50%;
   }
+
   .resume__wrapper {
-    // height: calc(100% + 32px);
     padding-bottom: 32px;
-    .vl {
-      border-left: 6px solid black;
-      height: calc(100% - 88px);
-      position: absolute;
-      top: 0;
-    }
 
     ul {
       display: flex;
       flex-direction: column;
 
-      li {
-        position: relative;
+      li.resume__wrapper--item {
+        // position: relative;
         display: block;
+        padding-left: 32px;
+        // position: relative;
+        // float: left;
+        padding-bottom: 24px;
 
-        background-color: white;
+        .dot {
+          content: "";
+          position: relative;
+          height: 5px;
+          width: 5px;
+          margin-right: 0;
+          margin-left: -42px;
+          border-radius: 100%;
+          background: white;
+          display: block;
+          z-index: 2;
+          // border: 5px solid tomato;
+        }
 
         &:nth-child(odd) {
           align-self: flex-start;
@@ -39,6 +54,9 @@ $card-width: 450px;
 
         &:nth-child(even) {
           align-self: flex-end;
+          border-right: none !important;
+          border-top: none !important;
+          border-bottom: none !important;
         }
 
         /* Radio Inputs */
@@ -50,9 +68,16 @@ $card-width: 450px;
         label {
           position: relative;
           display: block;
-          padding: 1em;
-          font-size: 1.5em;
+          padding: 18px 15px;
+          font-size: 1em;
           cursor: pointer;
+          margin-top: 24px;
+          line-height: 18px;
+        }
+
+        label,
+        .accordion__content {
+          background-color: white;
         }
 
         label:before {
@@ -76,6 +101,7 @@ $card-width: 450px;
           position: relative;
           padding: 0 1.5em;
           transition: max-height 0.45s ease-in-out;
+          // padding: 1em;
         }
 
         input[name="panel"]:checked ~ .accordion__content {
@@ -84,9 +110,9 @@ $card-width: 450px;
 
         span.year {
           float: right;
-          border: solid 1px black;
+          // border: solid 1px black;
           font-size: 14px;
-          padding: 6px 12px;
+          // padding: 6px 12px;
           margin-right: 48px;
         }
       }
@@ -94,17 +120,71 @@ $card-width: 450px;
   }
 }
 
+@media (max-width: 64rem) {
+  .Resume {
+    .resume__wrapper {
+      ul {
+        li.resume__wrapper--item:nth-child(odd) {
+          border-right: none !important;
+          border-top: none !important;
+          border-bottom: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 48rem) {
+  .Resume {
+    .resume__wrapper {
+      ul {
+        li.resume__wrapper--item {
+          span.year {
+            font-size: 1em;
+            position: absolute;
+            float: none;
+            margin-right: 0;
+            top: 18px;
+          }
+
+          &:nth-child(odd) span.year {
+            left: calc(100% + 70px);
+          }
+
+          &:nth-child(even) span.year {
+            right: calc(100% + 70px);
+            text-align: right;
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+}
 @media (min-width: 64rem) {
   .Resume {
     .resume__wrapper {
-      .vl {
-        left: 50%;
-        margin-left: -3px;
-        top: 88px;
-      }
+      // .vl {
+      //   left: 50%;
+      //   margin-left: -3px;
+      //   top: 88px;
+      // }
       ul {
-        li {
+        li.resume__wrapper--item {
+          width: calc(50% - 34px);
+        }
+        li.resume__wrapper--item:nth-child(odd) {
           max-width: $card-width;
+          border-left: none !important;
+          border-top: none !important;
+          border-bottom: none !important;
+          padding-left: 0;
+          padding-right: 32px;
+
+          .dot {
+            text-align: right;
+            margin-left: calc(100% + 27px);
+          }
 
           span.year {
             display: block;
