@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Socials from "./Socials.js";
 import Resume from "./pages/Resume";
+import Projects from "./pages/Projects";
 import Sidenav from "./modules/Sidenav";
 import About from "./pages/About";
 import { Grid, Row, Col } from "react-flexbox-grid";
@@ -22,6 +23,10 @@ const routes = [
   {
     path: "/resume",
     main: () => <Resume />,
+  },
+  {
+    path: "/projects",
+    main: () => <Projects />,
   },
 ];
 

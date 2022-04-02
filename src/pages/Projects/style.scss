@@ -1,0 +1,17 @@
+.Projects {
+  img {
+    object-fit: contain;
+    padding: 16px;
+    max-width: calc(100% - 32px);
+  }
+}
+
+@media (min-width: 48rem) {
+  .Projects {
+  }
+}
+
+@media (min-width: 64rem) {
+  .Projects {
+  }
+}

@@ -14,9 +14,9 @@ class Resume extends React.Component {
 
   componentDidMount() {
     const API_KEY = "AIzaSyAMA3O3jW8CYQ2RpDLbZLcWLLBKPz4MRbw";
-    const sheet = "1y6k7P6o2rLA6KkgLXaJZtsr9c72YaBUU4XY5NYgx7eQ";
+    const spreadsheetId = "1y6k7P6o2rLA6KkgLXaJZtsr9c72YaBUU4XY5NYgx7eQ";
     fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${sheet}/values/A2:F?key=${API_KEY}`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/A2:F?key=${API_KEY}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,6 @@ class Resume extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    const colours = ["pink", "lightblue", "yellow", "orange"];
 
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -73,7 +72,6 @@ class Resume extends React.Component {
                         role={item[2]}
                         site={item[3]}
                         description={item[4]}
-                        colour={colours[i]}
                       />
                     ))}
                   </ul>
@@ -87,7 +85,7 @@ class Resume extends React.Component {
   }
 }
 
-const Job = ({ props, id, year, role, description, site, state, colour }) => {
+const Job = ({ id, year, role, description, site }) => {
   function getColor() {
     return (
       "hsl(" +
