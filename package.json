@@ -7,7 +7,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.4.2",
     "cypress": "^9.5.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^18.0.0",
     "react-dom": "^16.9.0",
     "react-flexbox-grid": "^2.1.2",
